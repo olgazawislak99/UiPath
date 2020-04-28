@@ -111,7 +111,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If sap2010:Annotation.AnnotationText="Adjust output text to the number of victories" Condition="[winner.Value &gt; 1]" DisplayName="Adjust output text" sap:VirtualizedContainerService.HintSize="501.6,243.2" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If sap2010:Annotation.AnnotationText="Adjust output text to the number of victories" Condition="[winner.Value &gt; 1]" DisplayName="" sap:VirtualizedContainerService.HintSize="501.6,243.2" sap2010:WorkflowViewState.IdRef="If_3">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
