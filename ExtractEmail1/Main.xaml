@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="948.8,1705.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="948.8,1692.8" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -41,9 +41,14 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="887.2,1540.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="925.6,1528" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="[“Please use the following address to contact me john.doe@localcompany.com on the company email&quot;]" Name="InputData" />
       <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Index initialized to -1 (equivalent to text not found)" Default="-1" Name="IndexTextToFind" />
@@ -58,7 +63,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap2010:Annotation.AnnotationText="Search for @ in the phrase" DisplayName="Initialize the word search" sap:VirtualizedContainerService.HintSize="845.6,91.2" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap2010:Annotation.AnnotationText="" DisplayName="" sap:VirtualizedContainerService.HintSize="884,91.2" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[TextToFind]</OutArgument>
       </Assign.To>
@@ -71,7 +76,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign sap2010:Annotation.AnnotationText="Get the index of @ in the input phrase" DisplayName="Get @ text index" sap:VirtualizedContainerService.HintSize="845.6,91.2" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap2010:Annotation.AnnotationText="" DisplayName="" sap:VirtualizedContainerService.HintSize="884,91.2" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[IndexTextToFind]</OutArgument>
       </Assign.To>
@@ -84,23 +89,23 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <If sap2010:Annotation.AnnotationText="" Condition="[IndexTextToFind = -1]" DisplayName="If" sap:VirtualizedContainerService.HintSize="845.6,1154.4" sap2010:WorkflowViewState.IdRef="If_2">
+    <If sap2010:Annotation.AnnotationText="" Condition="[IndexTextToFind = -1]" DisplayName="If" sap:VirtualizedContainerService.HintSize="884,1141.6" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <WriteLine DisplayName="Write NotFound to output" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="The input text contains no valid email address" />
+        <WriteLine DisplayName="Write NotFound to output" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Wpisane dane nie mają poprawnego adresu email" />
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="572,973.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap:VirtualizedContainerService.HintSize="610.4,960.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap2010:Annotation.AnnotationText="Extract the text until @" DisplayName="Extract all text until @" sap:VirtualizedContainerService.HintSize="530.4,91.2" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign sap2010:Annotation.AnnotationText="" DisplayName="" sap:VirtualizedContainerService.HintSize="568.8,91.2" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[EmailAddress_Part1]</OutArgument>
             </Assign.To>
@@ -113,7 +118,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <Assign sap2010:Annotation.AnnotationText="Get all the text from the last space to @" DisplayName="Set Email Part 1" sap:VirtualizedContainerService.HintSize="530.4,91.2" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <Assign sap2010:Annotation.AnnotationText="" DisplayName="" sap:VirtualizedContainerService.HintSize="568.8,91.2" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[EmailAddress_Part1]</OutArgument>
             </Assign.To>
@@ -126,7 +131,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <Assign sap2010:Annotation.AnnotationText="Extract all the text after @" DisplayName="Extract all text after @" sap:VirtualizedContainerService.HintSize="530.4,91.2" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign sap2010:Annotation.AnnotationText="" DisplayName="" sap:VirtualizedContainerService.HintSize="568.8,91.2" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[EmailAddress_Part2]</OutArgument>
             </Assign.To>
@@ -139,7 +144,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <Assign sap2010:Annotation.AnnotationText="Find first space after @" DisplayName="Get the index of space after @" sap:VirtualizedContainerService.HintSize="530.4,91.2" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign sap2010:Annotation.AnnotationText="" DisplayName="" sap:VirtualizedContainerService.HintSize="568.8,91.2" sap2010:WorkflowViewState.IdRef="Assign_6">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">[TemporaryIndex]</OutArgument>
             </Assign.To>
@@ -152,9 +157,9 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <If Condition="[TemporaryIndex = -1]" DisplayName="Check if space index was found for email part 2" sap:VirtualizedContainerService.HintSize="530.4,253.6" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[TemporaryIndex = -1]" DisplayName="If" sap:VirtualizedContainerService.HintSize="568.8,240.8" sap2010:WorkflowViewState.IdRef="If_1">
             <If.Then>
-              <Assign sap2010:Annotation.AnnotationText="Extract all remaining text after @" DisplayName="Extract all text after @" sap:VirtualizedContainerService.HintSize="243.2,88" sap2010:WorkflowViewState.IdRef="Assign_7">
+              <Assign sap2010:Annotation.AnnotationText="" DisplayName="" sap:VirtualizedContainerService.HintSize="262.4,91.2" sap2010:WorkflowViewState.IdRef="Assign_7">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[EmailAddress_Part2]</OutArgument>
                 </Assign.To>
@@ -169,7 +174,7 @@
               </Assign>
             </If.Then>
             <If.Else>
-              <Assign sap2010:Annotation.AnnotationText="Extract all text after @ until the first space index" DisplayName="Extract text after @ until space" sap:VirtualizedContainerService.HintSize="243.2,104" sap2010:WorkflowViewState.IdRef="Assign_8">
+              <Assign sap2010:Annotation.AnnotationText="" DisplayName="" sap:VirtualizedContainerService.HintSize="262.4,91.2" sap2010:WorkflowViewState.IdRef="Assign_8">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[EmailAddress_Part2]</OutArgument>
                 </Assign.To>
@@ -184,7 +189,7 @@
               </Assign>
             </If.Else>
           </If>
-          <WriteLine DisplayName="Print email address" sap:VirtualizedContainerService.HintSize="511.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[String.Format(&quot;The email address is {0}@{1} &quot;, EmailAddress_Part1, EmailAddress_Part2)]" />
+          <WriteLine DisplayName="Print email address" sap:VirtualizedContainerService.HintSize="568.8,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[String.Format(&quot;Adres email to: {0}@{1} &quot;, EmailAddress_Part1, EmailAddress_Part2)]" />
         </Sequence>
       </If.Else>
     </If>
